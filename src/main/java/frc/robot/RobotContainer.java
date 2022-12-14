@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
-import frc.robot.commands.SetLedState;
+import frc.robot.commands.SetGreenLightOn;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.OnBoardIO;
 import frc.robot.subsystems.OnBoardIO.ChannelMode;
@@ -67,8 +67,8 @@ public class RobotContainer {
     m_drivetrain.setDefaultCommand(getArcadeDriveCommand());
 
     JoystickButton button1 = new JoystickButton(m_controller, 1);
-    button1.whenActive(new SetLedState(m_onboardIO, true))
-      .whenInactive(new SetLedState(m_onboardIO, false));
+    button1.whenActive(new SetGreenLightOn(m_onboardIO, true))
+      .whenInactive(new SetGreenLightOn(m_onboardIO, false));
 
     // Example of how to use the onboard IO
     Button onboardButtonA = new Button(m_onboardIO::getButtonAPressed);
